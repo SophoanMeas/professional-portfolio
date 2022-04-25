@@ -34,15 +34,4 @@ $(document).ready(function() {
 
         previousScroll = currentScroll;
     });
-
-    $('.resume').click(function() {
-
-        $(".word").fancybox({
-            'width': 600, // or whatever
-            'height': 320,
-            'type': 'iframe'
-        });
-    });
-
-
 });
