@@ -11,21 +11,38 @@ $(document).ready(function() {
 
     $(window).scroll(function() {
         var currentScroll = $(this).scrollTop();
+
+        // console.log(currentScroll)
         if (currentScroll > previousScroll) {
             //Direction: Down
-            $(".nav-bar").fadeOut();
-        } else {
+            // $(".text-header").fadeOut();
+            // $(".nav-item").fadeOut();
+            // $(".text-header").css("opacity", ".9")
+            $(".text-header").css({ "opacity": "0", "transition": "0.5s" });
+            $('.nav-bar').css("background-color", "rgba(56 58 92 / .5)")
+                // $('.profile-name').css("color", "black")
+                // $('.nav-bar-links li a').css("color", "black")
+        } else if (currentScroll < 200) {
             //Direction: Up
-            $(".nav-bar").fadeIn();
+            // $(".profile-name").fadeIn();
+            // $(".nav-item").fadeIn();
+            $(".text-header").css({ "opacity": "1", "transition": "0.5s" })
+            $('.nav-bar').css("background-color", "transparent")
+            $('.profile-name').css("color", "white")
+            $('.nav-bar-links li a').css("color", "white")
         }
 
         previousScroll = currentScroll;
-
-        if (currentScroll == 0) {
-            $(".nav-bar").css("position", "relative");
-        } else {
-            $(".nav-bar").css("position", "fixed");
-        }
     });
+
+    $('.resume').click(function() {
+
+        $(".word").fancybox({
+            'width': 600, // or whatever
+            'height': 320,
+            'type': 'iframe'
+        });
+    });
+
 
 });
